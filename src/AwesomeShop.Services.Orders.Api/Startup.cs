@@ -1,4 +1,7 @@
 using AwesomeShop.Services.Orders.Application;
+using AwesomeShop.Services.Orders.Core.Repositories;
+using AwesomeShop.Services.Orders.Infrastructure;
+using AwesomeShop.Services.Orders.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,7 +31,9 @@ namespace AwesomeShop.Services.Orders.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHandlers();
-            
+            services.AddMongo();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
