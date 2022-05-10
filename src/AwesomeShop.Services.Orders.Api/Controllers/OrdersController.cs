@@ -36,7 +36,7 @@ namespace AwesomeShop.Services.Orders.Api.Controllers
         {
             var id = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(Get), new { id });
+            return CreatedAtAction(nameof(Get), new { id = id }, command);
         }
     }        
 }
