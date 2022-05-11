@@ -12,6 +12,7 @@ using MongoDB.Driver;
 using RabbitMQ.Client;
 using System;
 
+
 namespace AwesomeShop.Services.Orders.Infrastructure
 {
     public static class Extensions

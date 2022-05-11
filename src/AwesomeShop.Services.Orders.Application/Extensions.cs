@@ -18,7 +18,7 @@ namespace AwesomeShop.Services.Orders.Application
 
         public static IServiceCollection AddSubscribers(this IServiceCollection services)
         {
-            services.AddHostedService<PaymentAcceptedSubscriber>();
+            // services.AddHostedService<PaymentAcceptedSubscriber>();
 
             return services;
         }
