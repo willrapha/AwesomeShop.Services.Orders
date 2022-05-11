@@ -1,8 +1,9 @@
-﻿using AwesomeShop.Services.Orders.Application.Commands;
+﻿using System;
+using System.Text;
+using AwesomeShop.Services.Orders.Application.Commands;
+using AwesomeShop.Services.Orders.Application.Subscribers;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Text;
 
 namespace AwesomeShop.Services.Orders.Application
 {
@@ -15,7 +16,14 @@ namespace AwesomeShop.Services.Orders.Application
             return services;
         }
 
-        public static string ToDashCase(this string text) // TODO: move to a separate project texto-texto
+        public static IServiceCollection AddSubscribers(this IServiceCollection services)
+        {
+            services.AddHostedService<PaymentAcceptedSubscriber>();
+
+            return services;
+        }
+
+        public static string ToDashCase(this string text)
         {
             if (text == null)
             {

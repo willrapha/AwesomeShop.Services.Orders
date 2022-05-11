@@ -32,7 +32,8 @@ namespace AwesomeShop.Services.Orders.Api
                 .AddMessageBus()
                 .AddMongo()
                 .AddRepositories()
-                .AddHandlers();
+                .AddHandlers()
+                .AddSubscribers();
 
             services.AddHttpClient();
 
