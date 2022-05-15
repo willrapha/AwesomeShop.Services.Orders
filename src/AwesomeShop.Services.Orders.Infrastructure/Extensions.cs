@@ -2,6 +2,7 @@
 using AwesomeShop.Services.Orders.Infrastructure.MessageBus;
 using AwesomeShop.Services.Orders.Infrastructure.Persistence;
 using AwesomeShop.Services.Orders.Infrastructure.Persistence.Repositories;
+using AwesomeShop.Services.Orders.Infrastructure.ServiceDiscovery;
 using Consul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -66,7 +67,6 @@ namespace AwesomeShop.Services.Orders.Infrastructure
             services.AddSingleton<IMessageBusClient, RabbitMqClient>();
 
             return services;
-            return null;
         }
 
         public static IServiceCollection AddConsulConfig(this IServiceCollection services, IConfiguration config)
@@ -76,6 +76,8 @@ namespace AwesomeShop.Services.Orders.Infrastructure
 
                 consulConfig.Address = new Uri(address);
             }));
+
+            services.AddTransient<IServiceDiscoveryService, ConsulService>();
 
             return services;
         }
