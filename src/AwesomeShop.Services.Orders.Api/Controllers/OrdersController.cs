@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AwesomeShop.Services.Orders.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("")]
     [ApiController]
     public class OrdersController : ControllerBase
     {
