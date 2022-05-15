@@ -22,6 +22,7 @@ namespace AwesomeShop.Services.Orders.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services
+                .AddRedisCache()
                 .AddMessageBus()
                 .AddMongo()
                 .AddRepositories()
